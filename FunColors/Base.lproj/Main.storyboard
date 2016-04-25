@@ -144,6 +144,10 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="selectedColorImage" destination="8Tm-cq-nlH" id="dnm-5k-4GK"/>
+                        <outlet property="timerLabel" destination="qKO-Po-SJM" id="qwv-GO-YXu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

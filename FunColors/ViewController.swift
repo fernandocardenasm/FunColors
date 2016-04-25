@@ -13,6 +13,8 @@ var application:Application = Application()
 class ViewController: UIViewController {
     
     var timer = NSTimer()
+    @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var selectedColorImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +28,20 @@ class ViewController: UIViewController {
     }
     
     func countUp(){
+        timerLabel.text = "\(application.timer)"
         if application.timer == 0 {
             let color = application.getRandomColor()
-            print("Raw:",color.rawValue)
+            switch color {
+            case .Blue:
+                selectedColorImage.image = UIImage(named: "circle_blue")
+            case .Red:
+                selectedColorImage.image = UIImage(named: "circle_red")
+            case .Green:
+                selectedColorImage.image = UIImage(named: "circle_green")
+            case .Gold:
+                selectedColorImage.image = UIImage(named: "circle_yellow")
+                
+            }
             application.initTimer()
         }
         else{
