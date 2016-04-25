@@ -42,20 +42,29 @@ class Application {
             return .Gold
         }
         else{
-            let randomColorNumber: Int = Int(arc4random_uniform(UInt32(self.availableColors.count - 1)))
+            let randomColorNumber: Int = Int(arc4random_uniform(UInt32(self.availableColors.count)))
+            print(randomColorNumber)
             return self.availableColors[randomColorNumber]
         }
     }
     
     func useGoldenColor()->Bool{
         //Max Number: 9, to achieve a 10% chances to get 0, from 0 to 9.
-        let randomNumber:Int = Int(arc4random_uniform(UInt32(9)))
+        let randomNumber:Int = Int(arc4random_uniform(UInt32(10)))
         if randomNumber == 0 {
             return true
         }
         else {
             return false
         }
+    }
+    
+    func decreaseTimer() {
+        self.timer -= 1
+    }
+    
+    func initTimer() {
+        self.timer = 3
     }
     
 }
