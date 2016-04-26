@@ -24,8 +24,6 @@ class ViewController: UIViewController {
         
         application.arrayColorsToChange()
         
-        print(application.arrayColorsToChange())
-        
         
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.countUp), userInfo: nil, repeats: true)
     }
@@ -38,7 +36,7 @@ class ViewController: UIViewController {
     func countUp(){
         timerLabel.text = "\(application.timer)"
         if application.timer == 0 {
-            let color = application.getRandomColor()
+            let color = application.selectedColor
             switch color {
             case .Blue:
                 selectedColorImage.image = UIImage(named: "circle_blue")
@@ -50,6 +48,10 @@ class ViewController: UIViewController {
                 selectedColorImage.image = UIImage(named: "circle_yellow")
                 
             }
+            application.defineColorToSelection()
+            application.assignNewColorsToArray()
+            print("New Iteration")
+            print(application.circleButtonList)
             application.initTimer()
         }
         else{

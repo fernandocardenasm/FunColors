@@ -31,11 +31,11 @@ class Application {
     
     func addButtonCirclesToList(){
         for i in 0...9{
-            self.circleButtonList.append(ButtonCircle(id: i, currentColor: .Blue, lastColor: nil))
+            self.circleButtonList.append(ButtonCircle(id: i, currentColor: .Blue))
         }
     }
     
-    //Return the position of the button circles that should be changed
+    //Return the aray of the button circles that should be changed
     func arrayColorsToChange()->[ButtonCircle]{
         var randomNumber: Int
         var numbersArray: [Int] = []
@@ -61,7 +61,7 @@ class Application {
         
     }
     
-    
+    //Validates that the random numer is not already in the array
     func uniquenessOfRandomForColorsToChange(array: [Int], number: Int) -> Bool{
         
         for index in 0...array.count - 1 {
@@ -72,15 +72,53 @@ class Application {
         return true
     }
     
+    //Assign new color to Array List of Button Circles
+    func assignNewColorsToArray() {
+        var array: [ButtonCircle] = arrayColorsToChange()
+        for index in 0...array.count - 1 {
+            self.circleButtonList[array[index].id].currentColor = getRandomColorButtonCircle(array[index])
+        }
+        assureSelectedColorInCurrents()
+    }
+    
+    //Make sure that exists at least one current color with the Application selected color
+    func assureSelectedColorInCurrents() {
+        var sw: Bool = true
+        var cont = 0
+        while cont < self.circleButtonList.count && sw {
+            if self.circleButtonList[cont].currentColor == self.selectedColor {
+                sw = false
+            }
+            else{
+                cont += 1
+            }
+        }
+        if sw == false {
+            let randomColorNumber = Int(arc4random_uniform(UInt32(self.circleButtonList.count)))
+            self.circleButtonList[randomColorNumber].currentColor = self.selectedColor
+        }
+    }
+    
+    //Get random color to be used in the tap Buttons
+    func getRandomColorButtonCircle(circle: ButtonCircle) -> ColorSelection {
+        var randomColorNumber: Int
+        var color: ColorSelection
+        repeat {
+            randomColorNumber = Int(arc4random_uniform(UInt32(self.availableColors.count)))
+            color = self.availableColors[randomColorNumber]
+        }while color != circle.currentColor
+        
+        return color
+    }
+    
     //Get the random color that will be used in the selection Circle
-    func getRandomColor()->ColorSelection{
+    func defineColorToSelection(){
         if useGoldenColor() {
-            return .Gold
+            self.selectedColor =  .Gold
         }
         else{
             let randomColorNumber: Int = Int(arc4random_uniform(UInt32(self.availableColors.count)))
-            print(randomColorNumber)
-            return self.availableColors[randomColorNumber]
+            self.selectedColor = self.availableColors[randomColorNumber]
         }
     }
     
@@ -117,6 +155,5 @@ enum ColorSelection: String {
 struct ButtonCircle {
     let id: Int
     var currentColor:ColorSelection
-    var lastColor: ColorSelection?
 }
 
