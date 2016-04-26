@@ -30,7 +30,7 @@ class Application {
     }
     
     func addButtonCirclesToList(){
-        for i in 0...9{
+        for i in 0...8{
             self.circleButtonList.append(ButtonCircle(id: i, currentColor: .Blue))
         }
     }
@@ -106,7 +106,7 @@ class Application {
         repeat {
             randomColorNumber = Int(arc4random_uniform(UInt32(self.availableColors.count)))
             color = self.availableColors[randomColorNumber]
-        }while color != circle.currentColor
+        }while color == circle.currentColor
         
         return color
     }

@@ -16,6 +16,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var selectedColorImage: UIImageView!
     
+    @IBOutlet weak var circleButton0: UIButton!
+    @IBOutlet weak var circleButton1: UIButton!
+    @IBOutlet weak var circleButton2: UIButton!
+    @IBOutlet weak var circleButton3: UIButton!
+    @IBOutlet weak var circleButton4: UIButton!
+    @IBOutlet weak var circleButton5: UIButton!
+    @IBOutlet weak var circleButton6: UIButton!
+    @IBOutlet weak var circleButton7: UIButton!
+    @IBOutlet weak var circleButton8: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -37,9 +48,13 @@ class ViewController: UIViewController {
         timerLabel.text = "\(application.timer)"
         if application.timer == 0 {
             let color = application.selectedColor
+            selectedColorImage.image = UIImage(named: "\(color)")
+            
+            /*
             switch color {
             case .Blue:
                 selectedColorImage.image = UIImage(named: "circle_blue")
+                print(color.rawValue)
             case .Red:
                 selectedColorImage.image = UIImage(named: "circle_red")
             case .Green:
@@ -48,15 +63,20 @@ class ViewController: UIViewController {
                 selectedColorImage.image = UIImage(named: "circle_yellow")
                 
             }
+             */
             application.defineColorToSelection()
             application.assignNewColorsToArray()
-            print("New Iteration")
-            print(application.circleButtonList)
             application.initTimer()
         }
         else{
             application.decreaseTimer()
         }
+    }
+    
+    func updateImageButtonCircles(){
+        //Check how to change button´s image
+        /*circleButton0.UIImageView = UIImage(named: "\(application.circleButtonList[0].currentColor.rawValue)")
+         */
     }
     
     
