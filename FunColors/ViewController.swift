@@ -19,6 +19,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        //Initialize Button Circles
+        application.addButtonCirclesToList()
+        
+        application.arrayColorsToChange()
+        
+        print(application.arrayColorsToChange())
+        
+        
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.countUp), userInfo: nil, repeats: true)
     }
 

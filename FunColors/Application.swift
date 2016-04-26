@@ -29,14 +29,50 @@ class Application {
         numColorsToUse = 2
     }
     
-    func allButtonCircles()->[ButtonCircle]{
-        var circleButtons: [ButtonCircle] = []
+    func addButtonCirclesToList(){
         for i in 0...9{
-            circleButtons.append(ButtonCircle(id: i, currentColor: .Blue, lastColor: nil))
+            self.circleButtonList.append(ButtonCircle(id: i, currentColor: .Blue, lastColor: nil))
         }
-        return circleButtons
     }
     
+    //Return the position of the button circles that should be changed
+    func arrayColorsToChange()->[ButtonCircle]{
+        var randomNumber: Int
+        var numbersArray: [Int] = []
+        var arrayColorsToChange: [ButtonCircle] = []
+        var cont = 1
+        
+        randomNumber = Int(arc4random_uniform(UInt32(self.circleButtonList.count)))
+        numbersArray.append(randomNumber)
+
+        while cont < self.numCirclesChanges {
+            randomNumber = Int(arc4random_uniform(UInt32(self.circleButtonList.count)))
+            if uniquenessOfRandomForColorsToChange(numbersArray, number: randomNumber){
+                numbersArray.append(randomNumber)
+                cont += 1
+            }
+        }
+        
+        for index in 0...numbersArray.count - 1 {
+            arrayColorsToChange.append(self.circleButtonList[numbersArray[index]])
+        }
+        
+        return arrayColorsToChange
+        
+    }
+    
+    
+    func uniquenessOfRandomForColorsToChange(array: [Int], number: Int) -> Bool{
+        
+        for index in 0...array.count - 1 {
+            if array[index] == number {
+                return false
+            }
+        }
+        return true
+    }
+    
+    //Get the random color that will be used in the selection Circle
     func getRandomColor()->ColorSelection{
         if useGoldenColor() {
             return .Gold
@@ -48,6 +84,7 @@ class Application {
         }
     }
     
+    //Validates if we must use the golden color for the selection Circle. 10% Chance to use it.
     func useGoldenColor()->Bool{
         //Max Number: 9, to achieve a 10% chances to get 0, from 0 to 9.
         let randomNumber:Int = Int(arc4random_uniform(UInt32(10)))
@@ -59,6 +96,7 @@ class Application {
         }
     }
     
+    //For Timer
     func decreaseTimer() {
         self.timer -= 1
     }
