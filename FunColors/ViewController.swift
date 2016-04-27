@@ -15,7 +15,8 @@ class ViewController: UIViewController {
     var timer = NSTimer()
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var selectedColorImage: UIImageView!
-    @IBOutlet weak var score: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var levelLabel: UILabel!
     
     
     @IBOutlet weak var circleButton0: UIButton!
@@ -32,7 +33,7 @@ class ViewController: UIViewController {
     @IBAction func circleButtonWasTapped(sender: UIButton) {
         if application.circleButtonList[sender.tag].currentColor == application.selectedColor{
             application.increaseScore(application.selectedColor)
-            score.text = "\(application.score)"
+            scoreLabel.text = "\(application.score)"
             nextIteration()
             timerLabel.text = String(format: "%.1f", application.timer)
         }
@@ -45,9 +46,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         //Initialize Button Circles
         application.addButtonCirclesToList()
-        
-        application.arrayColorsToChange()
-        
+        timerLabel.text = "\(application.maxTimer)"
+        scoreLabel.text = "\(application.score)"
+        levelLabel.text = "\(application.level)"
         
         timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(ViewController.countUp), userInfo: nil, repeats: true)
     }
