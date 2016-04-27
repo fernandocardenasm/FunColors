@@ -27,6 +27,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var circleButton8: UIButton!
     
     
+    @IBAction func circleButtonWasTapped(sender: UIButton) {
+        print("Tag:")
+        print(sender.tag)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -36,7 +42,7 @@ class ViewController: UIViewController {
         application.arrayColorsToChange()
         
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(ViewController.countUp), userInfo: nil, repeats: true)
+        //timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(ViewController.countUp), userInfo: nil, repeats: true)
     }
 
     override func didReceiveMemoryWarning() {

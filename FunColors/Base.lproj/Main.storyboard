@@ -64,48 +64,75 @@
                                                             <constraint firstAttribute="height" constant="80" id="Ss9-8Z-ZIU"/>
                                                         </constraints>
                                                         <state key="normal" title="Button" image="Blue"/>
+                                                        <connections>
+                                                            <action selector="circleButtonWasTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l2Q-QO-7cc"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sW8-bp-gjj">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sW8-bp-gjj">
                                                         <rect key="frame" x="95" y="0.0" width="90" height="123"/>
                                                         <state key="normal" title="Button" image="Blue"/>
+                                                        <connections>
+                                                            <action selector="circleButtonWasTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tk0-Gf-SSN"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1j-Uc-XPh">
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1j-Uc-XPh">
                                                         <rect key="frame" x="190" y="0.0" width="90" height="123"/>
                                                         <state key="normal" title="Button" image="Blue"/>
+                                                        <connections>
+                                                            <action selector="circleButtonWasTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MgO-rN-Dbq"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="iEW-wr-5oj">
                                                 <rect key="frame" x="0.0" y="132" width="280" height="124"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="87X-2d-rZr">
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="87X-2d-rZr">
                                                         <rect key="frame" x="0.0" y="0.0" width="90" height="124"/>
                                                         <state key="normal" title="Button" image="Blue"/>
+                                                        <connections>
+                                                            <action selector="circleButtonWasTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7ed-E7-82i"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNP-Jf-IMW">
+                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNP-Jf-IMW">
                                                         <rect key="frame" x="95" y="0.0" width="90" height="124"/>
                                                         <state key="normal" title="Button" image="Blue"/>
+                                                        <connections>
+                                                            <action selector="circleButtonWasTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f7n-0n-SSZ"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgs-rV-TdG">
+                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgs-rV-TdG">
                                                         <rect key="frame" x="190" y="0.0" width="90" height="124"/>
                                                         <state key="normal" title="Button" image="Blue"/>
+                                                        <connections>
+                                                            <action selector="circleButtonWasTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fP4-W9-40X"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DFy-y9-7k2">
                                                 <rect key="frame" x="0.0" y="265" width="280" height="123"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6A-sq-rbp">
+                                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6A-sq-rbp">
                                                         <rect key="frame" x="0.0" y="0.0" width="90" height="123"/>
                                                         <state key="normal" title="Button" image="Blue"/>
+                                                        <connections>
+                                                            <action selector="circleButtonWasTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zvx-Yy-ZKU"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1O-Ye-ahC">
+                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1O-Ye-ahC">
                                                         <rect key="frame" x="95" y="0.0" width="90" height="123"/>
                                                         <state key="normal" title="Button" image="Blue"/>
+                                                        <connections>
+                                                            <action selector="circleButtonWasTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KDV-n9-O9z"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dzR-wA-91b">
+                                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dzR-wA-91b">
                                                         <rect key="frame" x="190" y="0.0" width="90" height="123"/>
                                                         <state key="normal" title="Button" image="Blue"/>
+                                                        <connections>
+                                                            <action selector="circleButtonWasTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B4I-rv-QgF"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
