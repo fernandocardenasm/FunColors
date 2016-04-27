@@ -17,18 +17,16 @@ class Application {
     let maxTimer: Double
     var level: Int
     var numCirclesChanges: Int
-    var numColorsToUse: Int
     
     init(){
         score = 0
         selectedColor = .Blue
         circleButtonList = []
-        availableColors = [.Blue, .Red]
+        availableColors = [.Red, .Blue]
         timer = 1.6 //Assign 0.1 more than the desired one
         maxTimer = 1.6
         level = 1
         numCirclesChanges = 3
-        numColorsToUse = 2
     }
     
     func addButtonCirclesToList(){
@@ -146,6 +144,53 @@ class Application {
             self.score += 10 * self.level
         }
     }
+    
+    //Increase Level
+    func increaseLevel(numIteration: Int){
+        switch numIteration {
+        case 10:
+            self.level += 1
+        case 20:
+            self.level += 1
+        case 30:
+            self.level += 1
+        case 40:
+            self.level += 1
+        case 50:
+            self.level += 1
+        default:
+            break
+        }
+    }
+    
+    //Change the number of color that will be changed and the number of colors that will be used
+    func changeNumberCirclesAndColors(){
+        switch self.level {
+        case 1:
+            self.numCirclesChanges = 3
+            self.availableColors = [.Red, .Blue]
+        case 2:
+            self.numCirclesChanges = 4
+            self.availableColors = [.Red, .Blue]
+        case 3:
+            self.numCirclesChanges = 5
+            self.availableColors = [.Red, .Blue]
+        case 4:
+            self.numCirclesChanges = 3
+            self.availableColors = [.Red, .Blue, .Green]
+        case 5:
+            self.numCirclesChanges = 4
+            self.availableColors = [.Red, .Blue, .Green]
+        case 6:
+            self.numCirclesChanges = 5
+            self.availableColors = [.Red, .Blue, .Green]
+        default:
+            break
+        }
+        
+    }
+    
+    
     
     //Validates if we must use the golden color for the selection Circle. 10% Chance to use it.
     func useGoldenColor()->Bool{

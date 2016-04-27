@@ -13,10 +13,13 @@ var application:Application = Application()
 class ViewController: UIViewController {
     
     var timer = NSTimer()
+    var numIte: Int = 0
+    
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var selectedColorImage: UIImageView!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
+    @IBOutlet weak var numIterations: UILabel!
     
     
     @IBOutlet weak var circleButton0: UIButton!
@@ -73,9 +76,20 @@ class ViewController: UIViewController {
         application.defineColorToSelection()
         application.assignNewColorsToArray()
         updateImageButtonCircles()
+        
+        numIte += 1
+        numIterations.text = "\(numIte)"
+        application.increaseLevel(numIte)
+        application.changeNumberCirclesAndColors()
+        levelLabel.text = "\(application.level)"
+        
         let color = application.selectedColor
         selectedColorImage.image = UIImage(named: "\(color)")
         application.initTimer()
+        
+        
+        
+        
     }
     
     func updateImageButtonCircles(){
