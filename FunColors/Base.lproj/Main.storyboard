@@ -158,7 +158,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cSV-bY-dwC">
                                         <rect key="frame" x="0.0" y="478" width="280" height="50"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EP2-8M-zhX">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EP2-8M-zhX">
                                                 <rect key="frame" x="0.0" y="0.0" width="138" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="VxZ-Nu-Gh8"/>
@@ -199,7 +199,6 @@
                         <outlet property="circleButton7" destination="x1O-Ye-ahC" id="Fgd-Yt-jms"/>
                         <outlet property="circleButton8" destination="dzR-wA-91b" id="7zp-NY-qia"/>
                         <outlet property="levelLabel" destination="1Qg-u3-OH8" id="0Bp-z7-Uzf"/>
-                        <outlet property="numIterations" destination="EP2-8M-zhX" id="DHh-uH-yD1"/>
                         <outlet property="scoreLabel" destination="rDS-ki-UHi" id="cAX-64-JOU"/>
                         <outlet property="selectedColorImage" destination="8Tm-cq-nlH" id="dnm-5k-4GK"/>
                         <outlet property="timerLabel" destination="qKO-Po-SJM" id="qwv-GO-YXu"/>

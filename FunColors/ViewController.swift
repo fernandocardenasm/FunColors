@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JSSAlertView
 
 var application:Application = Application()
 
@@ -19,7 +20,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var selectedColorImage: UIImageView!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
-    @IBOutlet weak var numIterations: UILabel!
     
     
     @IBOutlet weak var circleButton0: UIButton!
@@ -31,6 +31,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var circleButton6: UIButton!
     @IBOutlet weak var circleButton7: UIButton!
     @IBOutlet weak var circleButton8: UIButton!
+    
     
     
     @IBAction func circleButtonWasTapped(sender: UIButton) {
@@ -48,12 +49,18 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         //Initialize Button Circles
-        application.addButtonCirclesToList()
-        timerLabel.text = "\(application.maxTimer)"
-        scoreLabel.text = "\(application.score)"
-        levelLabel.text = "\(application.level)"
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(ViewController.countUp), userInfo: nil, repeats: true)
+        setValuesToLabels()
+        
+        let alertview = JSSAlertView().show(self,
+                                            title: "Let´s start Playing!"
+        )
+        alertview.addAction(startGameCallback) // Method to run after dismissal
+        alertview.setTitleFont("ClearSans-Bold") // Title font
+        alertview.setTextFont("ClearSans") // Alert body text font
+        alertview.setButtonFont("ClearSans-Light") // Button text font
+        alertview.setTextTheme(.Dark) // can be .Light or .Dark
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,7 +70,8 @@ class ViewController: UIViewController {
     
     func countUp(){
         if application.timer <= 0.1 {
-            nextIteration()
+            //nextIteration()
+            loseTheGame()
         }
         else{
             application.decreaseTimer()
@@ -72,13 +80,13 @@ class ViewController: UIViewController {
 
     }
     
+    //Defines what need to be done when a new iteration happens
     func nextIteration() {
         application.defineColorToSelection()
         application.assignNewColorsToArray()
         updateImageButtonCircles()
         
         numIte += 1
-        numIterations.text = "\(numIte)"
         application.increaseLevel(numIte)
         application.changeNumberCirclesAndColors()
         levelLabel.text = "\(application.level)"
@@ -87,9 +95,36 @@ class ViewController: UIViewController {
         selectedColorImage.image = UIImage(named: "\(color)")
         application.initTimer()
         
-        
-        
-        
+    }
+    
+    func loseTheGame(){
+        timer.invalidate()
+        let alertview = JSSAlertView().show(self,
+                                            title: "Your Score was: \(application.score)! Let´s play Again."
+        )
+        alertview.addAction(startGameCallback) // Method to run after dismissal
+        alertview.setTitleFont("ClearSans-Bold") // Title font
+        alertview.setTextFont("ClearSans") // Alert body text font
+        alertview.setButtonFont("ClearSans-Light") // Button text font
+        alertview.setTextTheme(.Dark) // can be .Light or .Dark
+    }
+    
+    func startGameCallback() {
+        // this'll run after the alert is dismissed
+        resetValuesGame()
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(ViewController.countUp), userInfo: nil, repeats: true)
+    }
+    
+    func resetValuesGame(){
+        application.resetClassValues()
+        application.addButtonCirclesToList()
+        setValuesToLabels()
+    }
+    
+    func setValuesToLabels(){
+        timerLabel.text = "\(application.maxTimer)"
+        scoreLabel.text = "\(application.score)"
+        levelLabel.text = "\(application.level)"
     }
     
     func updateImageButtonCircles(){
@@ -103,11 +138,9 @@ class ViewController: UIViewController {
         circleButton6.setImage(UIImage(named: "\(application.circleButtonList[6].currentColor.rawValue)"), forState: .Normal)
         circleButton7.setImage(UIImage(named: "\(application.circleButtonList[7].currentColor.rawValue)"), forState: .Normal)
         circleButton8.setImage(UIImage(named: "\(application.circleButtonList[8].currentColor.rawValue)"), forState: .Normal)
- 
+        
     }
     
-    
-
 
 }
 

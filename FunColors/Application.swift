@@ -29,6 +29,16 @@ class Application {
         numCirclesChanges = 3
     }
     
+    func resetClassValues(){
+        score = 0
+        selectedColor = .Blue
+        circleButtonList = []
+        availableColors = [.Red, .Blue]
+        timer = 1.6 //Assign 0.1 more than the desired one
+        level = 1
+        numCirclesChanges = 3
+    }
+    
     func addButtonCirclesToList(){
         for i in 0...8{
             self.circleButtonList.append(ButtonCircle(id: i, currentColor: .Blue))
