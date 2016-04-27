@@ -45,19 +45,19 @@ class ViewController: UIViewController {
     }
     
     func countUp(){
-        timerLabel.text = "\(application.timer)"
-        if application.timer <= 0 {
+        if application.timer <= 0.1 {
             application.defineColorToSelection()
             application.assignNewColorsToArray()
             updateImageButtonCircles()
             let color = application.selectedColor
             selectedColorImage.image = UIImage(named: "\(color)")
-
             application.initTimer()
         }
         else{
             application.decreaseTimer()
         }
+        timerLabel.text = String(format: "%.1f", application.timer)
+
     }
     
     func updateImageButtonCircles(){

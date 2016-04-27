@@ -24,8 +24,8 @@ class Application {
         selectedColor = .Blue
         circleButtonList = []
         availableColors = [.Blue, .Red]
-        timer = 1.0
-        maxTimer = 1.0
+        timer = 1.6 //Assign 0.1 more than the desired one
+        maxTimer = 1.6
         level = 1
         numCirclesChanges = 3
         numColorsToUse = 2
