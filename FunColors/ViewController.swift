@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         application.arrayColorsToChange()
         
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.countUp), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(ViewController.countUp), userInfo: nil, repeats: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,26 +46,13 @@ class ViewController: UIViewController {
     
     func countUp(){
         timerLabel.text = "\(application.timer)"
-        if application.timer == 0 {
-            let color = application.selectedColor
-            selectedColorImage.image = UIImage(named: "\(color)")
-            
-            /*
-            switch color {
-            case .Blue:
-                selectedColorImage.image = UIImage(named: "circle_blue")
-                print(color.rawValue)
-            case .Red:
-                selectedColorImage.image = UIImage(named: "circle_red")
-            case .Green:
-                selectedColorImage.image = UIImage(named: "circle_green")
-            case .Gold:
-                selectedColorImage.image = UIImage(named: "circle_yellow")
-                
-            }
-             */
+        if application.timer <= 0 {
             application.defineColorToSelection()
             application.assignNewColorsToArray()
+            updateImageButtonCircles()
+            let color = application.selectedColor
+            selectedColorImage.image = UIImage(named: "\(color)")
+
             application.initTimer()
         }
         else{
@@ -75,8 +62,16 @@ class ViewController: UIViewController {
     
     func updateImageButtonCircles(){
         //Check how to change button´s image
-        /*circleButton0.UIImageView = UIImage(named: "\(application.circleButtonList[0].currentColor.rawValue)")
-         */
+        circleButton0.setImage(UIImage(named: "\(application.circleButtonList[0].currentColor.rawValue)"), forState: .Normal)
+        circleButton1.setImage(UIImage(named: "\(application.circleButtonList[1].currentColor.rawValue)"), forState: .Normal)
+        circleButton2.setImage(UIImage(named: "\(application.circleButtonList[2].currentColor.rawValue)"), forState: .Normal)
+        circleButton3.setImage(UIImage(named: "\(application.circleButtonList[3].currentColor.rawValue)"), forState: .Normal)
+        circleButton4.setImage(UIImage(named: "\(application.circleButtonList[4].currentColor.rawValue)"), forState: .Normal)
+        circleButton5.setImage(UIImage(named: "\(application.circleButtonList[5].currentColor.rawValue)"), forState: .Normal)
+        circleButton6.setImage(UIImage(named: "\(application.circleButtonList[6].currentColor.rawValue)"), forState: .Normal)
+        circleButton7.setImage(UIImage(named: "\(application.circleButtonList[7].currentColor.rawValue)"), forState: .Normal)
+        circleButton8.setImage(UIImage(named: "\(application.circleButtonList[8].currentColor.rawValue)"), forState: .Normal)
+ 
     }
     
     

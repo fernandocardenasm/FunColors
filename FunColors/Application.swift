@@ -14,6 +14,7 @@ class Application {
     var circleButtonList: [ButtonCircle]
     var availableColors: [ColorSelection]
     var timer: Double
+    let maxTimer: Double
     var level: Int
     var numCirclesChanges: Int
     var numColorsToUse: Int
@@ -23,7 +24,8 @@ class Application {
         selectedColor = .Blue
         circleButtonList = []
         availableColors = [.Blue, .Red]
-        timer = 3.0
+        timer = 1.0
+        maxTimer = 1.0
         level = 1
         numCirclesChanges = 3
         numColorsToUse = 2
@@ -75,10 +77,12 @@ class Application {
     //Assign new color to Array List of Button Circles
     func assignNewColorsToArray() {
         var array: [ButtonCircle] = arrayColorsToChange()
+        unassignGoldToButtonCircles()
         for index in 0...array.count - 1 {
             self.circleButtonList[array[index].id].currentColor = getRandomColorButtonCircle(array[index])
         }
         assureSelectedColorInCurrents()
+        
     }
     
     //Make sure that exists at least one current color with the Application selected color
@@ -89,11 +93,9 @@ class Application {
             if self.circleButtonList[cont].currentColor == self.selectedColor {
                 sw = false
             }
-            else{
-                cont += 1
-            }
+            cont += 1
         }
-        if sw == false {
+        if sw == true {
             let randomColorNumber = Int(arc4random_uniform(UInt32(self.circleButtonList.count)))
             self.circleButtonList[randomColorNumber].currentColor = self.selectedColor
         }
@@ -109,6 +111,19 @@ class Application {
         }while color == circle.currentColor
         
         return color
+    }
+    
+    //Unassign the color Gold for the Button Circles
+    func unassignGoldToButtonCircles(){
+        var randomColorNumber: Int
+        var color: ColorSelection
+        for index in 0...self.circleButtonList.count - 1 {
+            if self.circleButtonList[index].currentColor == .Gold {
+                randomColorNumber = Int(arc4random_uniform(UInt32(self.availableColors.count)))
+                color = self.availableColors[randomColorNumber]
+                self.circleButtonList[index].currentColor = color
+            }
+        }
     }
     
     //Get the random color that will be used in the selection Circle
@@ -136,11 +151,11 @@ class Application {
     
     //For Timer
     func decreaseTimer() {
-        self.timer -= 1
+        self.timer -= 0.1
     }
     
     func initTimer() {
-        self.timer = 3
+        self.timer = self.maxTimer
     }
     
 }
