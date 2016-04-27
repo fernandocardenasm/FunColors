@@ -41,6 +41,9 @@ class ViewController: UIViewController {
             nextIteration()
             timerLabel.text = String(format: "%.1f", application.timer)
         }
+        else {
+            loseTheGame()
+        }
 
     }
     
