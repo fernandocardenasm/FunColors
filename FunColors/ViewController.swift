@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     var timer = NSTimer()
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var selectedColorImage: UIImageView!
+    @IBOutlet weak var score: UILabel!
+    
     
     @IBOutlet weak var circleButton0: UIButton!
     @IBOutlet weak var circleButton1: UIButton!
@@ -28,8 +30,13 @@ class ViewController: UIViewController {
     
     
     @IBAction func circleButtonWasTapped(sender: UIButton) {
-        print("Tag:")
-        print(sender.tag)
+        if application.circleButtonList[sender.tag].currentColor == application.selectedColor{
+            application.increaseScore(application.selectedColor)
+            score.text = "\(application.score)"
+            nextIteration()
+            timerLabel.text = String(format: "%.1f", application.timer)
+        }
+
     }
     
     
@@ -42,7 +49,7 @@ class ViewController: UIViewController {
         application.arrayColorsToChange()
         
         
-        //timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(ViewController.countUp), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(ViewController.countUp), userInfo: nil, repeats: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,18 +59,22 @@ class ViewController: UIViewController {
     
     func countUp(){
         if application.timer <= 0.1 {
-            application.defineColorToSelection()
-            application.assignNewColorsToArray()
-            updateImageButtonCircles()
-            let color = application.selectedColor
-            selectedColorImage.image = UIImage(named: "\(color)")
-            application.initTimer()
+            nextIteration()
         }
         else{
             application.decreaseTimer()
         }
         timerLabel.text = String(format: "%.1f", application.timer)
 
+    }
+    
+    func nextIteration() {
+        application.defineColorToSelection()
+        application.assignNewColorsToArray()
+        updateImageButtonCircles()
+        let color = application.selectedColor
+        selectedColorImage.image = UIImage(named: "\(color)")
+        application.initTimer()
     }
     
     func updateImageButtonCircles(){

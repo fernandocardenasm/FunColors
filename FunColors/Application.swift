@@ -137,6 +137,16 @@ class Application {
         }
     }
     
+    //Validates the amount of points that the score will be increased
+    func increaseScore(color: ColorSelection) {
+        if color == .Gold {
+            self.score += 20 * self.level
+        }
+        else{
+            self.score += 10 * self.level
+        }
+    }
+    
     //Validates if we must use the golden color for the selection Circle. 10% Chance to use it.
     func useGoldenColor()->Bool{
         //Max Number: 9, to achieve a 10% chances to get 0, from 0 to 9.

@@ -151,7 +151,7 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDS-ki-UHi">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDS-ki-UHi">
                                                 <rect key="frame" x="143" y="0.0" width="137" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -181,6 +181,7 @@
                         <outlet property="circleButton6" destination="m6A-sq-rbp" id="a0m-FP-TFS"/>
                         <outlet property="circleButton7" destination="x1O-Ye-ahC" id="Fgd-Yt-jms"/>
                         <outlet property="circleButton8" destination="dzR-wA-91b" id="7zp-NY-qia"/>
+                        <outlet property="score" destination="rDS-ki-UHi" id="dOK-7X-UWu"/>
                         <outlet property="selectedColorImage" destination="8Tm-cq-nlH" id="dnm-5k-4GK"/>
                         <outlet property="timerLabel" destination="qKO-Po-SJM" id="qwv-GO-YXu"/>
                     </connections>
