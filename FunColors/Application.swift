@@ -168,6 +168,8 @@ class Application {
             self.level += 1
         case 50:
             self.level += 1
+        case 60:
+            self.level += 1
         default:
             break
         }
@@ -193,6 +195,9 @@ class Application {
             self.availableColors = [.Red, .Blue, .Green]
         case 6:
             self.numCirclesChanges = 5
+            self.availableColors = [.Red, .Blue, .Green]
+        case 7:
+            self.numCirclesChanges = 6
             self.availableColors = [.Red, .Blue, .Green]
         default:
             break
