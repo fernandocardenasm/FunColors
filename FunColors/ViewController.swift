@@ -94,14 +94,14 @@ class ViewController: UIViewController {
         application.changeNumberCirclesAndColors()
         levelLabel.text = "\(application.level)"
         
-        let color = application.selectedColor
-        selectedColorImage.image = UIImage(named: "\(color)")
+        updateSelectedColor()
         application.initTimer()
         
     }
     
     func loseTheGame(){
         timer.invalidate()
+        numIte = 0
         let alertview = JSSAlertView().show(self,
                                             title: "Your Score was: \(application.score)! Let´s play Again."
         )
@@ -116,12 +116,15 @@ class ViewController: UIViewController {
         // this'll run after the alert is dismissed
         resetValuesGame()
         timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(ViewController.countUp), userInfo: nil, repeats: true)
+        
     }
     
     func resetValuesGame(){
         application.resetClassValues()
         application.addButtonCirclesToList()
         setValuesToLabels()
+        updateImageButtonCircles()
+        updateSelectedColor()
     }
     
     func setValuesToLabels(){
@@ -142,6 +145,11 @@ class ViewController: UIViewController {
         circleButton7.setImage(UIImage(named: "\(application.circleButtonList[7].currentColor.rawValue)"), forState: .Normal)
         circleButton8.setImage(UIImage(named: "\(application.circleButtonList[8].currentColor.rawValue)"), forState: .Normal)
         
+    }
+    
+    func updateSelectedColor(){
+        let color = application.selectedColor
+        selectedColorImage.image = UIImage(named: "\(color)")
     }
     
 
