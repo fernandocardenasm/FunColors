@@ -23,8 +23,8 @@ class Application {
         selectedColor = .Blue
         circleButtonList = []
         availableColors = [.Red, .Blue]
-        timer = 1.6 //Assign 0.1 more than the desired one
-        maxTimer = 1.6
+        timer = 1.5 //Assign 0.1 more than the desired one
+        maxTimer = 1.5
         level = 1
         numCirclesChanges = 3
     }
@@ -34,7 +34,7 @@ class Application {
         selectedColor = .Blue
         circleButtonList = []
         availableColors = [.Red, .Blue]
-        timer = 1.6 //Assign 0.1 more than the desired one
+        timer = 1.5 //Assign 0.1 more than the desired one
         level = 1
         numCirclesChanges = 3
     }
@@ -148,7 +148,7 @@ class Application {
     //Validates the amount of points that the score will be increased
     func increaseScore(color: ColorSelection) {
         if color == .Gold {
-            self.score += 20 * self.level
+            self.score += 30 * self.level
         }
         else{
             self.score += 10 * self.level
@@ -169,6 +169,16 @@ class Application {
         case 50:
             self.level += 1
         case 60:
+            self.level += 1
+        case 70:
+            self.level += 1
+        case 80:
+            self.level += 1
+        case 90:
+            self.level += 1
+        case 100:
+            self.level += 1
+        case 110:
             self.level += 1
         default:
             break
@@ -199,6 +209,25 @@ class Application {
         case 7:
             self.numCirclesChanges = 6
             self.availableColors = [.Red, .Blue, .Green]
+        case 8:
+            self.numCirclesChanges = 3
+            self.availableColors = [.Red, .Blue, .Green, .Purple]
+        case 9:
+            self.numCirclesChanges = 4
+            self.availableColors = [.Red, .Blue, .Green, .Purple]
+            decreaseTimer()
+        case 10:
+            self.numCirclesChanges = 5
+            self.availableColors = [.Red, .Blue, .Green, .Purple]
+            decreaseTimer()
+        case 11:
+            self.numCirclesChanges = 6
+            self.availableColors = [.Red, .Blue, .Green, .Purple]
+            decreaseTimer()
+        case 12:
+            self.numCirclesChanges = 7
+            self.availableColors = [.Red, .Blue, .Green, .Purple]
+            decreaseTimer()
         default:
             break
         }
@@ -234,6 +263,7 @@ enum ColorSelection: String {
     case Red
     case Blue
     case Green
+    case Purple
     case Gold
 }
 
