@@ -180,6 +180,12 @@ class Application {
             self.level += 1
         case 110:
             self.level += 1
+        case 120:
+            self.level += 1
+        case 130:
+            self.level += 1
+        case 140:
+            self.level += 1
         default:
             break
         }
@@ -228,6 +234,17 @@ class Application {
             self.numCirclesChanges = 7
             self.availableColors = [.Red, .Blue, .Green, .Purple]
             decreaseTimer()
+        case 13:
+            self.numCirclesChanges = 3
+            self.availableColors = [.Red, .Blue, .Green, .Purple, .Brown]
+        case 14:
+            self.numCirclesChanges = 4
+            self.availableColors = [.Red, .Blue, .Green, .Purple, .Brown]
+            decreaseTimer()
+        case 15:
+            self.numCirclesChanges = 5
+            self.availableColors = [.Red, .Blue, .Green, .Purple, .Brown]
+            decreaseTimer()
         default:
             break
         }
@@ -264,6 +281,7 @@ enum ColorSelection: String {
     case Blue
     case Green
     case Purple
+    case Brown
     case Gold
 }
 
