@@ -158,33 +158,7 @@ class Application {
     //Increase Level
     func increaseLevel(numIteration: Int){
         switch numIteration {
-        case 10:
-            self.level += 1
-        case 20:
-            self.level += 1
-        case 30:
-            self.level += 1
-        case 40:
-            self.level += 1
-        case 50:
-            self.level += 1
-        case 60:
-            self.level += 1
-        case 70:
-            self.level += 1
-        case 80:
-            self.level += 1
-        case 90:
-            self.level += 1
-        case 100:
-            self.level += 1
-        case 110:
-            self.level += 1
-        case 120:
-            self.level += 1
-        case 130:
-            self.level += 1
-        case 140:
+        case 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160:
             self.level += 1
         default:
             break
@@ -245,6 +219,13 @@ class Application {
             self.numCirclesChanges = 5
             self.availableColors = [.Red, .Blue, .Green, .Purple, .Brown]
             decreaseTimer()
+        case 16:
+            self.numCirclesChanges = 6
+            self.availableColors = [.Red, .Blue, .Green, .Purple, .Brown]
+            decreaseTimer()
+        case 17:
+            self.numCirclesChanges = 7
+            self.availableColors = [.Red, .Blue, .Green, .Purple, .Brown]
         default:
             break
         }

@@ -56,7 +56,8 @@ class ViewController: UIViewController {
         setValuesToLabels()
         
         let alertview = JSSAlertView().show(self,
-                                            title: "Let´s start Playing!"
+                                            title: "Welcome",
+                                            text: "Press one of the nine circles, which has the color you see on the right top circle. Let´s start Playing!"
         )
         alertview.addAction(startGameCallback) // Method to run after dismissal
         alertview.setTitleFont("ClearSans-Bold") // Title font
